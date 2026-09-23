@@ -6,7 +6,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-    <title>Tienda VJ</title>
+        
+    <title>PipeShop</title>
+    <style>
+        .game-card {
+            height: 100%;
+        }
+
+        .game-card img {
+            height: 280px;
+            object-fit: cover;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 
@@ -14,36 +29,50 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="img/logo.png" alt="" width="30" height="24">
-                Tienda de video
+                PipeShop  
             </a>
         </div>
     </nav>
 
-    <div class="container mt-3">
+ <div class="container mt-3">
 
-        <!-- Barra de búsqueda -->
-        <form method="get" action="/" class="d-flex mb-4">
-            <input type="text" name="busqueda" class="form-control me-2"
-                   placeholder="Buscar videojuego..." th:value="${busqueda}">
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
-
-        <div class="row">
-            <div class="col-md-3" th:each="juego : ${videojuegos}">
-                <div class="card">
-                    <img th:src="${juego.imagenUrl}" class="card-img-top" th:alt="${juego.titulo}">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${juego.titulo}">Título</h5>
-                        <p class="card-text" th:text="${juego.descripcion}">Descripción</p>
-                        <a href="#" class="btn btn-primary">Ver detalles</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <p th:if="${#lists.isEmpty(videojuegos)}" class="text-muted">No se encontraron videojuegos.</p>
-
+    <div class="hero-seccion">
+    <h2>Explora nuestro catálogo</h2>
+    <p>Encuentra tu próximo videojuego favorito</p>
     </div>
+
+    <!-- Barra de búsqueda -->
+    <form method="get" action="/" class="d-flex mb-5">
+        <input type="text" name="busqueda" class="form-control me-2"
+               placeholder="Buscar videojuego..." th:value="${busqueda}">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <div class="row gy-4">
+        <div class="col-md-3" th:each="juego : ${videojuegos}">
+    <div class="card">
+        <div class="card-img-wrapper">
+              <img th:src="${juego.imagenUrl}"
+                  class="card-img-top"
+                  th:alt="${juego.titulo}"
+                  onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80';">
+            <span class="card-badge">Videojuego</span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" th:text="${juego.titulo}">Título</h5>
+            <p class="card-text" th:text="${juego.descripcion}">Descripción</p>
+            <a href="#" class="btn btn-primary">Ver detalles</a>
+        </div>
+     </div>
+     </div>
+    </div>
+
+    <p th:if="${#lists.isEmpty(videojuegos)}" class="text-muted">No se encontraron videojuegos.</p>
+
+</div>
+ <footer class="footer">
+    &copy; 2026 Tienda de Video Juegos. Todos los derechos reservados.
+ </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -1,0 +1,222 @@
+/* src/main/resources/static/css/estilos.css */
+
+:root {
+    --color-primario: #2563eb;
+    --color-primario-oscuro: #1d4ed8;
+    --color-fondo: #f4f6f9;
+    --color-texto: #1a1a2e;
+    --color-texto-suave: #6b7280;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    color: var(--color-texto);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background: linear-gradient(90deg, #111827, #1f2937) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+}
+
+/* ===== Encabezado de sección ===== */
+.hero-seccion {
+    text-align: center;
+    padding: 40px 0 10px;
+}
+
+.hero-seccion h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--color-texto);
+}
+
+.hero-seccion p {
+    color: var(--color-texto-suave);
+    font-size: 1rem;
+}
+
+/* ===== Barra de búsqueda ===== */
+.busqueda-form {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.busqueda-form .form-control {
+    border-radius: 30px 0 0 30px;
+    padding: 12px 20px;
+    border: 1px solid #d1d5db;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.busqueda-form .form-control:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.busqueda-form .btn {
+    border-radius: 0 30px 30px 0;
+    padding-left: 28px;
+    padding-right: 28px;
+    background-color: var(--color-primario);
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.busqueda-form .btn:hover {
+    background-color: var(--color-primario-oscuro);
+}
+
+/* ===== Cards ===== */
+.card {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    height: 100%;
+    background-color: #fff;
+    animation: aparecer 0.5s ease both;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.16);
+}
+
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.06);
+}
+
+.card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--color-primario);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 20px 20px;
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--color-texto);
+    margin-bottom: 8px;
+}
+
+.card-text {
+    color: var(--color-texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.card .btn-primary {
+    margin-top: auto;
+    border-radius: 20px;
+    font-weight: 600;
+    background-color: var(--color-primario);
+    border: none;
+    padding: 8px 0;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.card .btn-primary:hover {
+    background-color: var(--color-primario-oscuro);
+    transform: scale(1.03);
+}
+
+/* Animación de entrada escalonada */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.row.gy-4 > div:nth-child(1) .card { animation-delay: 0.05s; }
+.row.gy-4 > div:nth-child(2) .card { animation-delay: 0.1s; }
+.row.gy-4 > div:nth-child(3) .card { animation-delay: 0.15s; }
+.row.gy-4 > div:nth-child(4) .card { animation-delay: 0.2s; }
+.row.gy-4 > div:nth-child(5) .card { animation-delay: 0.25s; }
+.row.gy-4 > div:nth-child(6) .card { animation-delay: 0.3s; }
+.row.gy-4 > div:nth-child(7) .card { animation-delay: 0.35s; }
+.row.gy-4 > div:nth-child(8) .card { animation-delay: 0.4s; }
+
+/* ===== Mensaje "sin resultados" ===== */
+.text-muted {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* ===== Footer ===== */
+.footer {
+    background-color: #111827;
+    color: #9ca3af;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 0.85rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 767px) {
+    .busqueda-form {
+        flex-direction: column;
+    }
+    .busqueda-form .form-control,
+    .busqueda-form .btn {
+        border-radius: 30px;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}
