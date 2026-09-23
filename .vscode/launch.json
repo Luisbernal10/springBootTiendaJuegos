@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-VideojuegosApplication<videojuegos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.dosideas.videojuegos.VideojuegosApplication",
+            "projectName": "videojuegos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
