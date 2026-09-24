@@ -1,5 +1,6 @@
-package com.dosideas.videojuegos;
+package com.dosideas.videojuegos.repository;
 
+import com.dosideas.videojuegos.model.Videojuego;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 

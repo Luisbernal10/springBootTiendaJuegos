@@ -61,6 +61,7 @@
         <div class="card-body">
             <h5 class="card-title" th:text="${juego.titulo}">Título</h5>
             <p class="card-text" th:text="${juego.descripcion}">Descripción</p>
+            <p class="card-price" th:text="${'$' + #numbers.formatDecimal(juego.precio, 1, 2)}">$0.00</p>
             <a href="#" class="btn btn-primary">Ver detalles</a>
         </div>
      </div>

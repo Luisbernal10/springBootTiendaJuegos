@@ -6,24 +6,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.dosideas.videojuegos.Videojuego;
-import com.dosideas.videojuegos.VideojuegoRepository;
+import com.dosideas.videojuegos.model.Videojuego;
+import com.dosideas.videojuegos.service.VideojuegoService;
 
 @Controller
 public class ListadoController {
 
     @Autowired
-    private VideojuegoRepository videojuegoRepository;
+    private VideojuegoService videojuegoService;
 
     @RequestMapping("/")
     public String listarVideojuegos(@RequestParam(required = false) String busqueda, Model model) {
-        List<Videojuego> videojuegos;
-
-        if (busqueda != null && !busqueda.isEmpty()) {
-            videojuegos = videojuegoRepository.findByTituloContainingIgnoreCase(busqueda);
-        } else {
-            videojuegos = videojuegoRepository.findAll();
-        }
+        List<Videojuego> videojuegos = videojuegoService.buscarVideojuegos(busqueda);
 
         model.addAttribute("videojuegos", videojuegos);
         model.addAttribute("busqueda", busqueda);

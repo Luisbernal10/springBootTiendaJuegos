@@ -1,4 +1,4 @@
-package com.dosideas.videojuegos;
+package com.dosideas.videojuegos.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,14 +18,17 @@ public class Videojuego {
     @Column(length = 1000)
     private String descripcion;
 
+    private Double precio;
+
     private String imagenUrl;
 
     // Constructores
     public Videojuego() {}
 
-    public Videojuego(String titulo, String descripcion, String imagenUrl) {
+    public Videojuego(String titulo, String descripcion, Double precio, String imagenUrl) {
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.precio = precio;
         this.imagenUrl = imagenUrl;
     }
 
@@ -36,6 +39,8 @@ public class Videojuego {
     public void setTitulo(String titulo) { this.titulo = titulo; }
     public String getDescripcion() { return descripcion; }
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public Double getPrecio() { return precio; }
+    public void setPrecio(Double precio) { this.precio = precio; }
     public String getImagenUrl() { return imagenUrl; }
     public void setImagenUrl(String imagenUrl) { this.imagenUrl = imagenUrl; }
 }
